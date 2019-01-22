@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<views:BasePage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:views="clr-namespace:ClaimIt.UI.Pages;assembly=ClaimIt.UI"
+             xmlns:viewModels="clr-namespace:ClaimIt.Core.ViewModels;assembly=ClaimIt.Core"
+             x:Class="ClaimIt.UI.Pages.FirstPage"
+             x:TypeArguments="viewModels:FirstViewModel">
+    <ContentPage.Content>
+        <Label Text="First Page" VerticalOptions="Center" HorizontalOptions="Center" FontSize="40"/>
+    </ContentPage.Content>
+</views:BasePage>
