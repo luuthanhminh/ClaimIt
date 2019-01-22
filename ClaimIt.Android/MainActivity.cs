@@ -25,6 +25,10 @@ namespace ClaimIt.Droid
 
             base.OnCreate(savedInstanceState);
 
+            Window.ClearFlags(WindowManagerFlags.Fullscreen);
+            Window.AddFlags(WindowManagerFlags.TranslucentNavigation);
+            Window.AddFlags(WindowManagerFlags.TranslucentStatus);
+
         }
     }
 }
