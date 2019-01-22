@@ -5,7 +5,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClaimIt.Android", "ClaimIt.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClaimIt.iOS", "ClaimIt.iOS\ClaimIt.iOS.csproj", "{7DB01077-CB96-4FA4-9EEE-406E40F49BBC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClaimIt.UI", "ClaimIt\ClaimIt.UI.csproj", "{38FACC5C-87C9-401D-9E85-C11A2A4B5901}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClaimIt.UI", "ClaimIt.UI\ClaimIt.UI.csproj", "{38FACC5C-87C9-401D-9E85-C11A2A4B5901}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClaimIt.Core", "ClaimIt.Core\ClaimIt.Core.csproj", "{93232CAE-C6CD-4CE1-9D08-113E295BD292}"
 EndProject
