@@ -21,6 +21,26 @@ namespace ClaimIt.Core.ViewModels
 
         #endregion
 
+        #region Binding Properties
+
+        #region IsLoading
+
+        private bool _isLoading;
+        public bool IsLoading
+        {
+            get
+            {
+                return _isLoading;
+            }
+            set
+            {
+                SetProperty(ref _isLoading, value);
+            }
+        }
+
+        #endregion
+
+        #endregion
 
         #region Methods
 
@@ -50,6 +70,20 @@ namespace ClaimIt.Core.ViewModels
 
         #endregion
 
+
+        #region Methods
+
+        protected void ShowLoading()
+        {
+            IsLoading = true;
+        }
+
+        protected void HideLoading()
+        {
+            IsLoading = false;
+        }
+
+        #endregion
 
     }
 }

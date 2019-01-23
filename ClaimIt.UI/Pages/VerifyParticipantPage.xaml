@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<views:BasePage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:views="clr-namespace:ClaimIt.UI.Pages;assembly=ClaimIt.UI"
+             xmlns:viewModels="clr-namespace:ClaimIt.Core.ViewModels;assembly=ClaimIt.Core"
+                xmlns:controls="clr-namespace:ClaimIt.UI.Controls;assembly=ClaimIt.UI"
+             x:TypeArguments="viewModels:VerifyParticipantViewModel"
+             x:Class="ClaimIt.UI.Pages.VerifyParticipantPage"
+             ControlTemplate="{StaticResource BaseTemplate}">
+    <ContentPage.Content>
+        <Grid RowSpacing="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="225"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Image Source="login_bg_top.png" Aspect="AspectFill"/>
+            <Image Source="logo_with_text.png" HeightRequest="180" Aspect="AspectFit" VerticalOptions="Center" HorizontalOptions="Center"/>
+           <!--<BoxView Grid.Row="2" BackgroundColor="#D2D5DA"/>
+          <controls:ParticipantIdView Margin="0,15,0,0" ParticipantId="{Binding ParticipantId,Mode=TwoWay}" VerticalOptions="FillAndExpand" Grid.Row="1" Grid.RowSpan="2"/>-->
+            
+         <!--  <StackLayout Grid.Row="1" Margin="0,15" HorizontalOptions="FillAndExpand">
+            <Label Text="PARTICIPANT ID IS VERIFIED" VerticalOptions="Start" HorizontalOptions="Center"/>
+                <Image Source="verified_icon.png" WidthRequest="80" Aspect="AspectFit" HorizontalOptions="Center" VerticalOptions="CenterAndExpand"/>
+                <Grid VerticalOptions="End" HeightRequest="40" Margin="15,0,15,10">
+                    <Image Source="agree_btn_green_bg.png" Aspect="AspectFill"/>
+                    <Button BackgroundColor="Transparent" TextColor="White" BorderColor="Transparent" Text="ENTER PASSWORD"/>
+                </Grid>
+            <Label Opacity="0" Margin="0,0,0,10" VerticalOptions="End"  Text="PLEASE TRY AGAIN ON TAP THE BUTTON TO&#10;TALK TO A TRIAL COORDINATOR" HorizontalOptions="Center" HorizontalTextAlignment="Center"/>
+                <Grid VerticalOptions="End" HeightRequest="50">       
+                    <Image Source="bottom_help_bg.png" Aspect="AspectFill"/>
+                    <Label Text="Need Help? Tap here to talk to &#10;a trial coordinator" VerticalOptions="Center" HorizontalOptions="Center" HorizontalTextAlignment="Center"/>
+                </Grid>
+                </StackLayout>-->
+            
+             <StackLayout Grid.Row="1" Margin="0,15" HorizontalOptions="FillAndExpand">
+            <Label Text="WE ARE UNABLE TO FIND THAT&#10;PARTICIPANT ID" VerticalOptions="Start" HorizontalOptions="Center" HorizontalTextAlignment="Center"/>
+                <Image Source="wrong_icon.png" WidthRequest="80" Aspect="AspectFit" HorizontalOptions="Center" VerticalOptions="CenterAndExpand"/>
+                
+                <Grid VerticalOptions="End" HeightRequest="40" Margin="15,0,15,10">
+                    <Image Source="agree_btn_green_bg.png" Aspect="AspectFill"/>
+                    <Button BackgroundColor="Transparent" TextColor="White" BorderColor="Transparent" Text="TRY AGAIN"/>
+                </Grid>
+                <Label  Margin="0,0,0,10" VerticalOptions="End"  Text="PLEASE TRY AGAIN ON TAP THE BUTTON TO&#10;TALK TO A TRIAL COORDINATOR" HorizontalOptions="Center" HorizontalTextAlignment="Center"/>
+                
+                <Grid VerticalOptions="End" HeightRequest="50">       
+                    <Image Source="bottom_help_bg.png" Aspect="AspectFill"/>
+                    <Label  Text="Need Help? Tap here to talk to &#10;a trial coordinator" VerticalOptions="Center" HorizontalOptions="Center" HorizontalTextAlignment="Center"/>
+                </Grid>
+                </StackLayout>
+            
+            <Image Grid.Row="2" Source="input_divider.png" WidthRequest="125"  HorizontalOptions="Center" VerticalOptions="End" Aspect="AspectFill" Margin="0,0,0,5"/>
+        </Grid>
+    </ContentPage.Content>
+</views:BasePage>

@@ -15,7 +15,7 @@ namespace ClaimIt.UI
                 .AsInterfaces()
                 .RegisterAsLazySingleton();
 
-            RegisterAppStart<FirstViewModel>();
+            RegisterAppStart<VerifyParticipantViewModel>();
         }
 
         /// <summary>

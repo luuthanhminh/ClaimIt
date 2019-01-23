@@ -21,8 +21,10 @@
     <Folder Include="Pages\" />
     <Folder Include="Presenter\" />
     <Folder Include="Pages\Base\" />
+    <Folder Include="Controls\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="MainPage.xaml.cs" />
+    <Compile Remove="Controls\PinItemView.cs" />
   </ItemGroup>
 </Project>
