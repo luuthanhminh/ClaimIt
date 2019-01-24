@@ -16,7 +16,15 @@ namespace ClaimIt.UI.Controls
            BindableProperty.Create(propertyName: nameof(ParticipantId),
                                    returnType: typeof(string),
                                    declaringType: typeof(ParticipantIdView),
-                                   defaultValue: String.Empty);
+                                   defaultValue: String.Empty, propertyChanged: OnParticipantIdChanged);
+
+
+        static void OnParticipantIdChanged(BindableObject bindable, object oldValue, object newValue)
+        {
+            // Property changed implementation goes here
+            ParticipantIdView participantIdView = bindable as ParticipantIdView;
+            participantIdView.ParId.Update(newValue.ToString());
+        }
 
         public string ParticipantId
         {
@@ -24,6 +32,7 @@ namespace ClaimIt.UI.Controls
             set
             {
                 SetValue(ParticipantIdProperty, value);
+
             }
         }
 
@@ -64,7 +73,7 @@ namespace ClaimIt.UI.Controls
                     if (this.ParticipantId.Length == 10) return;
                     this.ParticipantId += input;
                 }
-                ParId.Update(this.ParticipantId);
+
             }
 
         }

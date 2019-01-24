@@ -6,13 +6,8 @@
             
             <Color x:Key="LoadingColor">#29abdf</Color>
             
-            <!--GLOBAL LABEL STYLE-->
-            
-             <Style TargetType="Label">
-                <Setter Property="FontSize" Value="14" />
-              
-            </Style>
-            
+          
+           
             <!--BASE TEMPLATE-->
             
             <ControlTemplate x:Key="BaseTemplate">

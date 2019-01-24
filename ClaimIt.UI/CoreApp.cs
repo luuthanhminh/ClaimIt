@@ -3,6 +3,9 @@ using System.Threading.Tasks;
 using MvvmCross.IoC;
 using MvvmCross.ViewModels;
 using ClaimIt.Core.ViewModels;
+using MvvmCross;
+using ClaimIt.Core.Services;
+using ClaimIt.UI.Services;
 
 namespace ClaimIt.UI
 {
@@ -16,6 +19,9 @@ namespace ClaimIt.UI
                 .RegisterAsLazySingleton();
 
             RegisterAppStart<VerifyParticipantViewModel>();
+
+
+            Mvx.IoCProvider.RegisterType<IDialogService, DialogService>();
         }
 
         /// <summary>

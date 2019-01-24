@@ -13,6 +13,8 @@
     <PackageReference Include="Xamarin.Forms" Version="3.4.0.1009999" />
     <PackageReference Include="MvvmCross" Version="6.2.2" />
     <PackageReference Include="MvvmCross.Forms" Version="6.2.2" />
+    <PackageReference Include="Xam.Plugins.Settings" Version="3.1.1" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.1" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ClaimIt.Core\ClaimIt.Core.csproj" />
@@ -22,6 +24,7 @@
     <Folder Include="Presenter\" />
     <Folder Include="Pages\Base\" />
     <Folder Include="Controls\" />
+    <Folder Include="Services\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="MainPage.xaml.cs" />

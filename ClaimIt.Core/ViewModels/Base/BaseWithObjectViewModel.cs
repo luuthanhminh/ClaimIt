@@ -1,15 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using ClaimIt.Core.Services;
 using MvvmCross.Commands;
 using MvvmCross.Navigation;
 using MvvmCross.Presenters.Hints;
 using MvvmCross.ViewModels;
-using ClaimIt.Core.Services;
-
 namespace ClaimIt.Core.ViewModels
 {
-    public class BaseViewModel : MvxViewModel
+    public abstract class BaseWithObjectViewModel<TParam> : MvxViewModel<TParam>
     {
         protected readonly IMvxNavigationService NavigationService;
 
@@ -17,7 +16,7 @@ namespace ClaimIt.Core.ViewModels
 
         #region Constructors
 
-        public BaseViewModel(IMvxNavigationService navigationService, IDialogService dialogService)
+        public BaseWithObjectViewModel(IMvxNavigationService navigationService, IDialogService dialogService)
         {
             NavigationService = navigationService;
             DialogService = dialogService;
@@ -61,16 +60,6 @@ namespace ClaimIt.Core.ViewModels
             await NavigationService.Navigate<TViewModel>(presentationBundle: presentation);
         }
 
-        protected void ShowLoading()
-        {
-            IsLoading = true;
-        }
-
-        protected void HideLoading()
-        {
-            IsLoading = false;
-        }
-
         #endregion
 
         #region Commands
@@ -84,5 +73,19 @@ namespace ClaimIt.Core.ViewModels
 
         #endregion
 
+
+        #region Methods
+
+        protected void ShowLoading()
+        {
+            IsLoading = true;
+        }
+
+        protected void HideLoading()
+        {
+            IsLoading = false;
+        }
+
+        #endregion
     }
 }
