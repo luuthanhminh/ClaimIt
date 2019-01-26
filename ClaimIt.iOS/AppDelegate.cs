@@ -4,6 +4,7 @@ using System.Linq;
 using ClaimIt.UI;
 using Foundation;
 using MvvmCross.Forms.Platforms.Ios.Core;
+using Syncfusion.ListView.XForms.iOS;
 using UIKit;
 
 namespace ClaimIt.iOS
@@ -25,6 +26,8 @@ namespace ClaimIt.iOS
         {
             UINavigationBar.Appearance.BarTintColor = UIColor.FromRGB(65, 105, 225);
             UINavigationBar.Appearance.TintColor = UIColor.FromRGB(255, 255, 255);
+
+            SfListViewRenderer.Init();
 
             return base.FinishedLaunching(app, options);
         }

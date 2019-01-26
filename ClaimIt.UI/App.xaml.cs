@@ -7,11 +7,12 @@ namespace ClaimIt.UI
 {
     public partial class App : Application
     {
+
         public App()
         {
+
+            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("NjM1MDFAMzEzNjJlMzQyZTMwaGEwNjZYZEg2dUZ2UGRRK1N0OVliczdFUTNYcHFhaGF3akxaTUZBZFhZOD0=");
             InitializeComponent();
-
-
         }
 
         protected override void OnStart()

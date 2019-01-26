@@ -1,5 +1,8 @@
 ﻿using System;
+using System.Threading.Tasks;
+using ClaimIt.Core.Helpers;
 using ClaimIt.Core.Services;
+using MvvmCross.Commands;
 using MvvmCross.Navigation;
 
 namespace ClaimIt.Core.ViewModels
@@ -38,6 +41,55 @@ namespace ClaimIt.Core.ViewModels
                 SetProperty(ref _participantId, value);
             }
         }
+        #endregion
+
+        #region Password
+
+        private string _password = String.Empty;
+
+        public string Password
+        {
+            get
+            {
+                return _password;
+            }
+            set
+            {
+                SetProperty(ref _password, value);
+            }
+        }
+        #endregion
+
+        #endregion
+
+        #region Commands
+
+        #region LoginCommand
+
+        public IMvxAsyncCommand LoginCommand => new MvxAsyncCommand(Login);
+
+        protected async Task Login()
+        {
+            if (String.IsNullOrEmpty(Password))
+            {
+                await DialogService.ShowMessage("Please enter password");
+                return;
+            }
+
+
+            var result = AppSettings.VerifiedPassword(this.ParticipantId, Password);
+
+            if (!result)
+            {
+                await DialogService.ShowMessage("Your passowrd is not correct");
+                this.Password = String.Empty;
+                return;
+            }
+
+            await this.NavigationService.Navigate<TasksViewModel, string>(this.ParticipantId);
+
+        }
+
         #endregion
 
         #endregion
