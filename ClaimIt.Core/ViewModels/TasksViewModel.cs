@@ -5,7 +5,9 @@ using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
 using ClaimIt.Core.Services;
+using MvvmCross.Commands;
 using MvvmCross.Navigation;
+using MvvmCross.Binding.Extensions;
 
 namespace ClaimIt.Core.ViewModels
 {
@@ -193,6 +195,8 @@ namespace ClaimIt.Core.ViewModels
                 WeekViewModel weekViewModel = new WeekViewModel();
                 weekViewModel.ParentViewModel = this;
                 weekViewModel.GroupText = week.FirstOrDefault().ToString("MMM yyyy");
+                weekViewModel.FirstDate = new DateTime(year, month, 1);
+
                 foreach (var date in week)
                 {
 
@@ -257,10 +261,35 @@ namespace ClaimIt.Core.ViewModels
                                     .GroupBy(d => calendar.GetWeekOfYear(d, CalendarWeekRule.FirstFourDayWeek, DayOfWeek.Monday))
                              .ToList();
 
+
             return results;
 
         }
 
+
+        protected void LoadPreviousWeeks()
+        {
+            var yr = this.Weeks.First().FirstDate.AddMonths(-1).Year;
+            var mth = this.Weeks.First().FirstDate.AddMonths(-1).Month;
+            var weeks = GetWeeks(yr, mth).ToList();
+
+            for (int i = weeks.Count - 1; i >= 0; i--)
+            {
+                this.Weeks.Insert(0, weeks[i]);
+            }
+
+        }
+
+        protected void LoadMoreWeeks()
+        {
+            var yr = this.Weeks.Last().FirstDate.AddMonths(1).Year;
+            var mth = this.Weeks.Last().FirstDate.AddMonths(1).Month;
+
+            foreach (var item in GetWeeks(yr, mth))
+            {
+                this.Weeks.Add(item);
+            }
+        }
 
         #endregion
 

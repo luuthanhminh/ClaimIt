@@ -8,6 +8,8 @@ namespace ClaimIt.Core.ViewModels
     {
         public MvxViewModel ParentViewModel { get; set; }
 
+        public DateTime FirstDate { get; set; }
+
         public bool IsCurrentWeek
         {
             get
