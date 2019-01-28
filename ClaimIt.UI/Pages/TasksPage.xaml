@@ -7,20 +7,97 @@
              x:TypeArguments="viewModels:TasksViewModel"
              x:Class="ClaimIt.UI.Pages.TasksPage"
                 xmlns:syncfusion="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms"
+                xmlns:sf="clr-namespace:Syncfusion.SfCarousel.XForms;assembly=Syncfusion.SfCarousel.XForms"
+                xmlns:template="clr-namespace:ClaimIt.UI.Templates;assembly=ClaimIt.UI"
              ControlTemplate="{StaticResource BaseTemplate}">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+              <template:TaskDataTemplateSelector x:Key="TaskDataTemplateSelector"/>
+            <DataTemplate x:Key="itemTemplate">
+                 <Grid  RowSpacing="0" ColumnSpacing="0">
+                             <Grid.ColumnDefinitions></Grid.ColumnDefinitions>
+             <Grid.ColumnDefinitions></Grid.ColumnDefinitions>
+             <Grid.ColumnDefinitions></Grid.ColumnDefinitions>
+             <Grid.ColumnDefinitions></Grid.ColumnDefinitions>
+             <Grid.ColumnDefinitions></Grid.ColumnDefinitions>
+             <Grid.ColumnDefinitions></Grid.ColumnDefinitions>
+             <Grid.ColumnDefinitions></Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            
+                              <Label Grid.Row="0" Grid.ColumnSpan="7" Text="{Binding GroupText}" TextColor="#48494A"  VerticalOptions="Center" HorizontalOptions="Center"/>
+                            
+                            <Label Grid.Row="1"  Grid.Column="0" Text="Mon" TextColor="#48494A" VerticalOptions="Center"  HorizontalOptions="Center"/>
+            <Label  Grid.Row="1" Grid.Column="1" Text="Tue" TextColor="#48494A"  VerticalOptions="Center" HorizontalOptions="Center"/>
+            <Label Grid.Row="1"  Grid.Column="2" Text="Wed" TextColor="#48494A" VerticalOptions="Center"  HorizontalOptions="Center"/>
+            <Label Grid.Row="1" Grid.Column="3" Text="Thu" TextColor="#48494A"  VerticalOptions="Center" HorizontalOptions="Center"/>
+            <Label Grid.Row="1"  Grid.Column="4" Text="Fri" TextColor="#48494A" VerticalOptions="Center"  HorizontalOptions="Center"/>
+            <Label Grid.Row="1" Grid.Column="5" Text="Sat" TextColor="#48494A" VerticalOptions="Center" HorizontalOptions="Center"/>
+             <Label Grid.Row="1"  Grid.Column="6" Text="Sun" TextColor="#48494A" VerticalOptions="Center" HorizontalOptions="Center"/>
+                    
+                     <Label Grid.Row="2"  Grid.Column="0" Text="{Binding MondayText}" TextColor="#48494A" VerticalOptions="Center"  HorizontalOptions="Center"/>
+                           <Button IsVisible="{Binding IsMonToDay}" Grid.Row="2"  Grid.Column="0" HorizontalOptions="Center" VerticalOptions="Center" WidthRequest="30" HeightRequest="30" CornerRadius="15" Text="" InputTransparent="true" BackgroundColor="#4CA14B"/> 
+                      <Label IsVisible="{Binding IsMonToDay}" Grid.Row="2"  Grid.Column="0" Text="{Binding MondayText}" TextColor="White" VerticalOptions="Center"  HorizontalOptions="Center"/>
+                    
+                    
+           <Label Grid.Column="1" Grid.Row="2" Text="{Binding TuedayText}" TextColor="#48494A" VerticalOptions="Center"  HorizontalOptions="Center"/>
+<Button Grid.Column="1" Grid.Row="2"  IsVisible="{Binding IsTueToDay}" HorizontalOptions="Center" VerticalOptions="Center" WidthRequest="30" HeightRequest="30" CornerRadius="15" Text="" InputTransparent="true" BackgroundColor="#4CA14B"/> 
+<Label Grid.Column="1" Grid.Row="2"  IsVisible="{Binding IsTueToDay}" Text="{Binding TuedayText}" TextColor="White" VerticalOptions="Center"  HorizontalOptions="Center"/>
+           
+                    <Label Grid.Column="2" Grid.Row="2" Text="{Binding WeddayText}" TextColor="#48494A" VerticalOptions="Center"  HorizontalOptions="Center"/>
+<Button Grid.Column="2" Grid.Row="2"  IsVisible="{Binding IsWedToDay}" HorizontalOptions="Center" VerticalOptions="Center" WidthRequest="30" HeightRequest="30" CornerRadius="15" Text="" InputTransparent="true" BackgroundColor="#4CA14B"/> 
+<Label Grid.Column="2" Grid.Row="2"  IsVisible="{Binding IsWedToDay}" Text="{Binding WeddayText}" TextColor="White" VerticalOptions="Center"  HorizontalOptions="Center"/>
+                    
+            <Label Grid.Column="3" Grid.Row="2" Text="{Binding ThusdayText}" TextColor="#48494A" VerticalOptions="Center"  HorizontalOptions="Center"/>
+<Button Grid.Column="3" Grid.Row="2"  IsVisible="{Binding IsThusToDay}" HorizontalOptions="Center" VerticalOptions="Center" WidthRequest="30" HeightRequest="30" CornerRadius="15" Text="" InputTransparent="true" BackgroundColor="#4CA14B"/> 
+<Label Grid.Column="3" Grid.Row="2"  IsVisible="{Binding IsThusToDay}" Text="{Binding ThusdayText}" TextColor="White" VerticalOptions="Center"  HorizontalOptions="Center"/>
+                    
+            
+                    <Label Grid.Column="4" Grid.Row="2" Text="{Binding FridayText}" TextColor="#48494A" VerticalOptions="Center"  HorizontalOptions="Center"/>
+<Button Grid.Column="4" Grid.Row="2"  IsVisible="{Binding IsFriToDay}" HorizontalOptions="Center" VerticalOptions="Center" WidthRequest="30" HeightRequest="30" CornerRadius="15" Text="" InputTransparent="true" BackgroundColor="#4CA14B"/> 
+<Label Grid.Column="4" Grid.Row="2"  IsVisible="{Binding IsFriToDay}" Text="{Binding FridayText}" TextColor="White" VerticalOptions="Center"  HorizontalOptions="Center"/>
+                    
+           
+                    <Label Grid.Column="5" Grid.Row="2" Text="{Binding SatdayText}" TextColor="#48494A" VerticalOptions="Center"  HorizontalOptions="Center"/>
+<Button Grid.Column="5" Grid.Row="2"  IsVisible="{Binding IsSatToDay}" HorizontalOptions="Center" VerticalOptions="Center" WidthRequest="30" HeightRequest="30" CornerRadius="15" Text="" InputTransparent="true" BackgroundColor="#4CA14B"/> 
+<Label Grid.Column="5" Grid.Row="2"  IsVisible="{Binding IsSatToDay}" Text="{Binding SatdayText}" TextColor="White" VerticalOptions="Center"  HorizontalOptions="Center"/>
+                    
+           <Label Grid.Column="6" Grid.Row="2" Text="{Binding SundayText}" TextColor="#48494A" VerticalOptions="Center"  HorizontalOptions="Center"/>
+<Button Grid.Column="6" Grid.Row="2" IsVisible="{Binding IsSunToDay}" HorizontalOptions="Center" VerticalOptions="Center" WidthRequest="30" HeightRequest="30" CornerRadius="15" Text="" InputTransparent="true" BackgroundColor="#4CA14B"/> 
+<Label Grid.Column="6" Grid.Row="2"  IsVisible="{Binding IsSunToDay}" Text="{Binding SundayText}" TextColor="White" VerticalOptions="Center"  HorizontalOptions="Center"/>
+                            
+                        </Grid>
+            </DataTemplate>
+        </ResourceDictionary>
+     </ContentPage.Resources>
     <ContentPage.Content>
-        <Grid>
+        <Grid RowSpacing="0">
              <Grid.RowDefinitions>
                 <RowDefinition Height="75"/>
+                 <RowDefinition Height="100"/>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
             <Grid BackgroundColor="#50AFC8" Padding="0,0,0,20">
-                <Label Text="Tasks Page" VerticalOptions="End" HorizontalOptions="Center"/>
+                <Label Text="{Binding Title}" VerticalOptions="End" TextColor="White" HorizontalOptions="Center"/>
             </Grid>
-            <syncfusion:SfListView Grid.Row="1" Margin="0,0,0,15">
+            <BoxView Grid.Row="1" BackgroundColor="#F2F6F9"/>
+           <sf:SfCarousel x:Name="carousel" SelectedIndex="{Binding SelectedWeekIndex}"     Grid.Row="1" ItemHeight="100"   HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" ItemTemplate="{StaticResource itemTemplate}" ItemsSource="{Binding Weeks}"  />   
+           <syncfusion:SfListView Grid.Row="2" x:Name="lvTasks" DragStartMode="None" 
+                                   ItemsSource="{Binding Tasks}" 
+                                     ItemSpacing="0" 
+                                      Padding="0,15,0,15"
+                                  ItemSize="40"
+                                     BackgroundColor="White" 
+                                     SelectionMode="Single" 
+                                     SelectionGesture="Tap" 
+                                     SelectionBackgroundColor="Transparent"
+                                     ItemTemplate="{StaticResource TaskDataTemplateSelector}">
                 
-            </syncfusion:SfListView>
+            </syncfusion:SfListView> 
               <Image Grid.Row="2" Source="input_divider.png" WidthRequest="125"  HorizontalOptions="Center" VerticalOptions="End" Aspect="AspectFill" Margin="0,0,0,5"/>
         </Grid>
        

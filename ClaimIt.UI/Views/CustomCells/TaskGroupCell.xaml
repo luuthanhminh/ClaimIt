@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ViewCell xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             x:Class="ClaimIt.UI.Views.CustomCells.TaskGroupCell">
+   <Grid HeightRequest="40">
+        <Label Margin="15,0,0,0" Text="PENDING TASKS" HorizontalOptions="Start" VerticalOptions="Center" TextColor="#69B873" FontSize="15"/>
+        <Grid HorizontalOptions="End" WidthRequest="40" Margin="0,0,10,0">
+              <Button  InputTransparent="true" HorizontalOptions="Center" VerticalOptions="Center" WidthRequest="30" HeightRequest="30" CornerRadius="15" BackgroundColor="#F1F6F8" BorderWidth="0"/> 
+        <Label  Text="{Binding GroupItemCounts}" HorizontalOptions="Center" FontSize="12" VerticalOptions="Center" TextColor="#69B873" />
+        </Grid>
+       
+       
+    </Grid>
+</ViewCell>

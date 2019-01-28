@@ -161,6 +161,9 @@
     <PackageReference Include="Syncfusion.Xamarin.SfListView">
       <Version>16.4.0.48</Version>
     </PackageReference>
+    <PackageReference Include="Syncfusion.Xamarin.SfCarousel">
+      <Version>16.4.0.48</Version>
+    </PackageReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
@@ -241,5 +244,6 @@
     <BundleResource Include="Resources\try_again_btn.png" />
     <BundleResource Include="Resources\verified_icon.png" />
     <BundleResource Include="Resources\wrong_icon.png" />
+    <BundleResource Include="Resources\bg_signature.jpeg" />
   </ItemGroup>
 </Project>

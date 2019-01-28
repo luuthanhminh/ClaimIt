@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ViewCell xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ClaimIt.UI.Views.CustomCells.TaskItemCell">
+   <Grid HeightRequest="40">
+        <Label Text="{Binding Title}" Margin="25,0,0,0" VerticalOptions="Center" HorizontalOptions="Start" TextColor="Black">
+            <Label.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding SelectItemCommand}"/>
+            </Label.GestureRecognizers>
+        </Label>
+    </Grid>
+</ViewCell>

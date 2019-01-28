@@ -8,7 +8,40 @@
              x:Class="ClaimIt.UI.Pages.TaskDetailPage"
              ControlTemplate="{StaticResource BaseTemplate}">
     <ContentPage.Content>
-         
+           <Grid RowSpacing="0">
+             <Grid.RowDefinitions>
+                <RowDefinition Height="75"/>
+                 <RowDefinition Height="80"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid BackgroundColor="#50AFC8" Padding="0,0,0,20">
+                <Label Text="Complete Agrement" VerticalOptions="End" TextColor="White" HorizontalOptions="Center"/>
+            </Grid>
+            <Label Grid.Row="1" HorizontalTextAlignment="Center" Text="Review the form below and tap AGREE&#10;if you're ready to continue" VerticalOptions="Center" HorizontalOptions="Center" TextColor="#19A33E"/>
+           <WebView x:Name="wvDes" Grid.Row="2"/>
+            <Grid Grid.Row="3" Margin="0,10,0,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                      <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                  <Grid HeightRequest="40" Margin="15,0,15,90">
+                    <Image Source="disagree_btn_blue_bg.png" Aspect="AspectFill"/>
+                    <Button Command="{Binding CloseCommand}" BackgroundColor="Transparent" TextColor="White" BorderColor="Transparent" Text="DISAGREE"/>
+                </Grid>
+                 <Grid Grid.Column="1" HeightRequest="40" Margin="15,0,15,90">
+                    <Image Source="agree_btn_green_bg.png" Aspect="AspectFill"/>
+                    <Button Command="{Binding AgreeCommand}" BackgroundColor="Transparent" TextColor="White" BorderColor="Transparent" Text="AGREE"/>
+                </Grid>
+                 <Grid Grid.ColumnSpan="2" VerticalOptions="End" HeightRequest="50" Margin="0,0,0,25">       
+                    <Image Source="bottom_help_bg.png" Aspect="AspectFill"/>
+                    <Label  Text="Need Help? Tap here to talk to &#10;a trial coordinator" VerticalOptions="Center" HorizontalOptions="Center" HorizontalTextAlignment="Center"/>
+                </Grid>
+                 <Image Grid.ColumnSpan="2"  Source="input_divider.png" WidthRequest="125"  HorizontalOptions="Center" VerticalOptions="End" Aspect="AspectFill" Margin="0,0,0,5"/>
+            </Grid>
+            
+             
+        </Grid>
     </ContentPage.Content>
 </views:BasePage>
 

@@ -5,6 +5,7 @@ using ClaimIt.UI;
 using Foundation;
 using MvvmCross.Forms.Platforms.Ios.Core;
 using Syncfusion.ListView.XForms.iOS;
+using Syncfusion.SfCarousel.XForms.iOS;
 using UIKit;
 
 namespace ClaimIt.iOS
@@ -28,6 +29,8 @@ namespace ClaimIt.iOS
             UINavigationBar.Appearance.TintColor = UIColor.FromRGB(255, 255, 255);
 
             SfListViewRenderer.Init();
+            new SfCarouselRenderer();
+
 
             return base.FinishedLaunching(app, options);
         }

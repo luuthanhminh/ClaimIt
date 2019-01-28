@@ -10,23 +10,23 @@
     <ContentPage.Resources>
           <ResourceDictionary>
             
-      
+      <!--
              <Style TargetType="Label">
                 <Setter Property="FontSize" Value="14" />
               
-            </Style>
+            </Style>-->
             </ResourceDictionary>
     </ContentPage.Resources>
     
     <ContentPage.Content>
         <Grid RowSpacing="0">
             <Grid.RowDefinitions>
-                <RowDefinition Height="225"/>
+                <RowDefinition Height="180"/>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
             <Image Source="login_bg_top.png" Aspect="AspectFill"/>
-            <Image Source="logo_with_text.png" HeightRequest="180" Aspect="AspectFit" VerticalOptions="Center" HorizontalOptions="Center"/>
+            <Image Source="logo_with_text.png" HeightRequest="120" Aspect="AspectFit" VerticalOptions="Center" HorizontalOptions="Center"/>
            <BoxView IsVisible="{Binding ShowVerification}" Grid.Row="2" BackgroundColor="#D2D5DA"/>
           <controls:ParticipantIdView IsVisible="{Binding ShowVerification}" Margin="0,15,0,0" ParticipantId="{Binding ParticipantId,Mode=TwoWay}" VerticalOptions="FillAndExpand" Grid.Row="1" Grid.RowSpan="2"/>
             

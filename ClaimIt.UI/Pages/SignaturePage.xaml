@@ -6,9 +6,66 @@
              xmlns:controls="clr-namespace:ClaimIt.UI.Controls;assembly=ClaimIt.UI"
              x:TypeArguments="viewModels:SignatureViewModel"
              x:Class="ClaimIt.UI.Pages.SignaturePage"
+                xmlns:sn="clr-namespace:SignaturePad.Forms;assembly=SignaturePad.Forms"
              ControlTemplate="{StaticResource BaseTemplate}">
     <ContentPage.Content>
-         
+            <Grid RowSpacing="0">
+             <Grid.RowDefinitions>
+                <RowDefinition Height="200"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid >
+               <Image Source="bg_signature.jpeg" Aspect="AspectFill"/>
+                <Grid HeightRequest="40" VerticalOptions="Start" Margin="0,30,0,0">
+                    <BoxView BackgroundColor="Black" Opacity="0.6"/>
+                    <Label Text="SIGNATURE" Font="Bold,20" HorizontalOptions="Center" TextColor="White" VerticalOptions="Center"/>
+                    <Label Text="X" Margin="0,0,10,0" VerticalTextAlignment="Center" TextColor="White" HorizontalOptions="End" VerticalOptions="Center" Font="Bold,20">
+                          <Label.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding CloseCommand}"/>
+            </Label.GestureRecognizers>
+                    </Label>
+                </Grid>
+            </Grid>
+           
+            <StackLayout HorizontalOptions="FillAndExpand" Margin="0,15,0,10" Grid.Row="1" Spacing="10">
+                <Label Text="Please use your finger to sign on the line below" FontSize="13" TextColor="Black" HorizontalOptions="Center"/>
+                <Grid HeightRequest="150" Margin="20,0">
+                    <Button BackgroundColor="Transparent" BorderWidth="1" BorderColor="Gray" InputTransparent="true"/>
+                <sn:SignaturePadView x:Name="snPad" Margin="2"
+   HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
+    StrokeWidth="3"
+    StrokeColor="Gray"
+    BackgroundColor="White" ClearText="" CaptionText="" PromptText="" SignatureLineColor="Transparent"/>
+                </Grid>
+                
+                 <Grid Padding="20,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                      <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                  <Grid HeightRequest="40" >
+                    <Image Source="disagree_btn_blue_bg.png" Aspect="AspectFill"/>
+                    <Button Command="{Binding ClearCommand}" BackgroundColor="Transparent" TextColor="White" BorderColor="Transparent" Text="CLEAR"/>
+                </Grid>
+                 <Grid Grid.Column="1" HeightRequest="40" >
+                    <Image Source="agree_btn_green_bg.png" Aspect="AspectFill"/>
+                    <Button Command="{Binding DoneCommand}" BackgroundColor="Transparent" TextColor="White" BorderColor="Transparent" Text="DONE"/>
+                </Grid>
+                
+            </Grid>
+            </StackLayout>
+           
+            <Grid Grid.Row="2">
+                 <Grid HorizontalOptions="FillAndExpand" VerticalOptions="End" HeightRequest="50" Margin="0,0,0,25">       
+                    <Image Source="bottom_help_bg.png" Aspect="AspectFill"/>
+                    <Label  Text="Need Help? Tap here to talk to &#10;a trial coordinator" VerticalOptions="Center" HorizontalOptions="Center" HorizontalTextAlignment="Center"/>
+                </Grid>
+                 <Image   Source="input_divider.png" WidthRequest="125"  HorizontalOptions="Center" VerticalOptions="End" Aspect="AspectFill" Margin="0,0,0,5"/>
+            </Grid>
+            
+             
+        </Grid>
     </ContentPage.Content>
 </views:BasePage>
 

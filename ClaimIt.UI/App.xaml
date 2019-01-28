@@ -11,10 +11,11 @@
             <!--BASE TEMPLATE-->
             
             <ControlTemplate x:Key="BaseTemplate">
-                <Grid>
+                <Grid BindingContext="{TemplateBinding BindingContext.DataContext}">
                   
                     <ContentPresenter  />
-                    <ActivityIndicator  x:Name="ActLoder" Color="{StaticResource LoadingColor}" HorizontalOptions="Center" VerticalOptions="Center" IsVisible="{TemplateBinding BindingContext.IsLoading}" IsRunning="{TemplateBinding BindingContext.IsLoading}" />
+                    
+                    <ActivityIndicator  x:Name="ActLoder" Color="{StaticResource LoadingColor}" HorizontalOptions="Center" VerticalOptions="Center" IsVisible="{Binding IsLoading}" IsRunning="{Binding IsLoading}" />
                    
                 </Grid>
             </ControlTemplate>
