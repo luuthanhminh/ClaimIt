@@ -19,6 +19,7 @@ namespace ClaimIt.Core.ViewModels
         public TasksViewModel(IMvxNavigationService navigationService, IDialogService dialogService) : base(navigationService, dialogService)
         {
             this.Title = $"{DateTime.Today.ToString("dd MMM yyyy")} - PRE SCREEN";
+            ShowLoading();
         }
 
         #region Overrides
@@ -29,12 +30,10 @@ namespace ClaimIt.Core.ViewModels
 
         }
 
-        public override Task Initialize()
+        public override async Task Initialize()
         {
-            LoadData();
-
-            return base.Initialize();
-
+            await base.Initialize();
+            await LoadData();
 
         }
 
@@ -125,11 +124,12 @@ namespace ClaimIt.Core.ViewModels
         #region Methods
 
 
-        async void LoadData()
+        async Task LoadData()
         {
             try
             {
                 ShowLoading();
+
                 var results = await BuildCalendar();
                 Weeks = new ObservableCollection<WeekViewModel>(results);
                 var currentWeek = Weeks.FirstOrDefault(w => w.IsCurrentWeek);
@@ -177,10 +177,10 @@ namespace ClaimIt.Core.ViewModels
                 var yr = DateTime.Today.Year;
                 var mth = DateTime.Today.Month;
 
-                var preMonth = new DateTime(yr, mth, 1).AddMonths(-1);
+                var preMonth = new DateTime(yr, mth, 1).AddMonths(-2);
                 var nextMonth = new DateTime(yr, mth, 1).AddMonths(1);
 
-                return GetWeeks(preMonth.Year, preMonth.Month).Union(GetWeeks(yr, mth)).Union(GetWeeks(nextMonth.Year, nextMonth.Month));
+                return GetWeeks(preMonth.Year, preMonth.Month).Union(GetWeeks(preMonth.AddMonths(1).Year, preMonth.AddMonths(1).Month)).Union(GetWeeks(yr, mth)).Union(GetWeeks(nextMonth.Year, nextMonth.Month)).Union(GetWeeks(nextMonth.AddMonths(1).Year, nextMonth.AddMonths(1).Month));
 
             });
 

@@ -85,7 +85,7 @@
                 <Label Text="{Binding Title}" VerticalOptions="End" TextColor="White" HorizontalOptions="Center"/>
             </Grid>
             <BoxView Grid.Row="1" BackgroundColor="#F2F6F9"/>
-           <sf:SfCarousel x:Name="carousel" SelectedIndex="{Binding SelectedWeekIndex, Mode=TwoWay}"  EnableVirtualization="true" Grid.Row="1" ItemHeight="100"   HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" ItemTemplate="{StaticResource itemTemplate}" ItemsSource="{Binding Weeks}"  />   
+           <sf:SfCarousel x:Name="carousel" SelectedIndex="{Binding SelectedWeekIndex}"   Grid.Row="1" ItemHeight="100"   HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" ItemTemplate="{StaticResource itemTemplate}" ItemsSource="{Binding Weeks}"  />   
            <syncfusion:SfListView Grid.Row="2" x:Name="lvTasks" DragStartMode="None" 
                                    ItemsSource="{Binding Tasks}" 
                                      ItemSpacing="0" 
